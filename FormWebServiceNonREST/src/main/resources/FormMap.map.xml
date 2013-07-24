@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+  project-version="3.0.0.1">
+	<property name="defaultPackage" value="forms.formWebService.cayenne.persistent"/>
+	<db-entity name="Form">
+		<db-attribute name="ID" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="Name" type="VARCHAR" isMandatory="true" length="100"/>
+	</db-entity>
+	<db-entity name="FormElement">
+		<db-attribute name="Cols" type="INTEGER"/>
+		<db-attribute name="Content" type="VARCHAR" length="100"/>
+		<db-attribute name="ElementID" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="FormID" type="BIGINT" isMandatory="true"/>
+		<db-attribute name="Height" type="INTEGER"/>
+		<db-attribute name="Name" type="VARCHAR" isMandatory="true" length="100"/>
+		<db-attribute name="Rows" type="INTEGER"/>
+		<db-attribute name="Type" type="CHAR" isMandatory="true" length="2"/>
+		<db-attribute name="Width" type="INTEGER"/>
+	</db-entity>
+	<obj-entity name="Form" className="forms.formWebService.cayenne.persistent.Form" dbEntityName="Form">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="Name"/>
+	</obj-entity>
+	<obj-entity name="FormElement" className="forms.formWebService.cayenne.persistent.FormElement" dbEntityName="FormElement">
+		<obj-attribute name="cols" type="java.lang.Integer" db-attribute-path="Cols"/>
+		<obj-attribute name="content" type="java.lang.String" db-attribute-path="Content"/>
+		<obj-attribute name="height" type="java.lang.Integer" db-attribute-path="Height"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="Name"/>
+		<obj-attribute name="rows" type="java.lang.Integer" db-attribute-path="Rows"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="Type"/>
+		<obj-attribute name="width" type="java.lang.Integer" db-attribute-path="Width"/>
+	</obj-entity>
+	<obj-entity name="Input" superEntityName="FormElement" className="forms.formWebService.cayenne.persistent.Input" dbEntityName="FormElement">
+		<qualifier><![CDATA[type = "I"]]></qualifier>
+		<obj-attribute name="content" type="java.lang.String" db-attribute-path="Content"/>
+		<attribute-override name="content" db-attribute-path="Content"/>
+	</obj-entity>
+	<obj-entity name="TextArea" superEntityName="FormElement" className="forms.formWebService.cayenne.persistent.TextArea" dbEntityName="FormElement">
+		<qualifier><![CDATA[type = "TA"]]></qualifier>
+		<obj-attribute name="cols" type="java.lang.Integer" db-attribute-path="Cols"/>
+		<obj-attribute name="content" type="java.lang.String" db-attribute-path="Content"/>
+		<obj-attribute name="rows" type="java.lang.Integer" db-attribute-path="Rows"/>
+		<attribute-override name="cols" db-attribute-path="Cols"/>
+		<attribute-override name="content" db-attribute-path="Content"/>
+		<attribute-override name="rows" db-attribute-path="Rows"/>
+	</obj-entity>
+	<db-relationship name="FormElement" source="Form" target="FormElement" toMany="true">
+		<db-attribute-pair source="ID" target="FormID"/>
+	</db-relationship>
+	<db-relationship name="Form" source="FormElement" target="Form" toMany="false">
+		<db-attribute-pair source="FormID" target="ID"/>
+	</db-relationship>
+	<obj-relationship name="formElement" source="Form" target="FormElement" deleteRule="Deny" db-relationship-path="FormElement"/>
+	<obj-relationship name="formElement1" source="Form" target="Input" deleteRule="Deny" db-relationship-path="FormElement"/>
+	<obj-relationship name="formElement2" source="Form" target="TextArea" deleteRule="Deny" db-relationship-path="FormElement"/>
+	<obj-relationship name="form" source="FormElement" target="Form" deleteRule="Nullify" db-relationship-path="Form"/>
+</data-map>
