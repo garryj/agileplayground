@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class TestServlet
- * modified by garry
  */
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
@@ -34,19 +33,18 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String[] roots = new String[] { "." };
+		String[] roots = new String[] { "src/main/java/forms/formController/groovy/" };
 		GroovyScriptEngine gse = new GroovyScriptEngine(roots);
 		Binding binding = new Binding();
 		binding.setVariable("input", "world");
+		
 		try {
 			gse.run("test.groovy", binding);
-		} catch (ResourceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ScriptException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (ResourceException | ScriptException e) {
 			e.printStackTrace();
 		}
+		
 		System.out.println(binding.getVariable("output"));
 	}
 
