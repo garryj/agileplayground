@@ -33,13 +33,14 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String[] roots = new String[] { "src/main/java/forms/formController/groovy/" };
+		String[] roots = new String[] { "" };
 		GroovyScriptEngine gse = new GroovyScriptEngine(roots);
 		Binding binding = new Binding();
 		binding.setVariable("input", "world");
+		binding.setVariable("output", "");
 		
 		try {
-			gse.run("test.groovy", binding);
+			gse.run("../../Users/Tom/Desktop/repo/forms/controller/src/main/java/forms/formController/groovy/test.groovy", binding);
 		}
 		catch (ResourceException | ScriptException e) {
 			e.printStackTrace();
