@@ -5,6 +5,7 @@ import groovy.util.GroovyScriptEngine;
 import groovy.util.ResourceException;
 import groovy.util.ScriptException;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -40,7 +41,12 @@ public class TestServlet extends HttpServlet {
 		binding.setVariable("output", "");
 		
 		try {
-			gse.run("../../Users/Tom/Desktop/repo/forms/controller/src/main/java/forms/formController/groovy/test.groovy", binding);
+			
+			/**TODO
+			 * Path only tempoary - must be relative
+			 */
+			
+			gse.run("../../Users/Tom/Desktop/repo/forms/controller/src/main/java/forms/formController/groovy/testRetrieve.groovy", binding);
 		}
 		catch (ResourceException | ScriptException e) {
 			e.printStackTrace();
