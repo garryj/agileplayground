@@ -1,7 +1,8 @@
-<h1>{{title}}</h1>
+<h3>{{title}}</h3>
 
-<button type="submit" ng-click="performPost()">POST</button>
+<form ng-submit="performPost()">
+	<button type="submit">POST</button>
+</form>
 
-<hr>
-
-{{forms}}
+forms is {{forms}}</br>
+status is {{status}}

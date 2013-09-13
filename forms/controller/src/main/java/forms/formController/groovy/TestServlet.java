@@ -7,6 +7,7 @@ import groovy.util.ScriptException;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,7 +53,9 @@ public class TestServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		System.out.println(binding.getVariable("output"));
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+	    out.println(binding.getVariable("output"));
 	}
 
 	/**
