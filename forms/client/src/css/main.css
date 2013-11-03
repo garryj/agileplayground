@@ -1,0 +1,96 @@
+#banner {
+	position:fixed;
+	left:0px;
+	top:0px;
+	right:0px;
+	height:35px;
+	background-color:#dfd5d7;
+	overflow:hidden;
+}
+			
+#banner .element {
+	position: absolute;
+	top:0px;
+	height: 100%;
+}
+			
+#banner #logo {
+	left: 0%;
+	width: 9%;
+	font: 25px Tahoma, Helvetica, Arial, Sans-Serif;
+	color: #222;
+	text-shadow: 0px 2px 3px #555;
+}
+			
+#banner #projectName {
+	left: 9%;
+	width: 55%;
+	padding-top:5px;
+	font: 17px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #views {
+	right: 160px;
+	width: 170px;
+	padding-top:1px;
+	font: 12px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #download {
+	right: 35px;
+	width: 125px;
+	padding-top:5px;
+	font: 17px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #settings {
+	right: 0px;
+	width: 35px;
+	padding-top:5px;
+}
+			
+div#rightPanel {
+	background:  #d8d8d8;
+	position: fixed;
+	right: -350px;
+	top: 35px;
+	width: 350px;
+	bottom: 0px;
+	opacity: 0.0;
+	overflow-y: auto;
+				
+	transition: transform 0.5s, opacity 1.0s;
+	-ms-transition: -ms-transform 0.5s, opacity 1.0s;
+	-webkit-transition: -webkit-transform 0.5s, opacity 1.0s;
+}
+			
+div#plus {
+	position: fixed;
+	right: 0px;
+	top: 150px;
+	height: 50px;
+	width: 50px;
+	background: #D2D2D2;
+}
+			
+div#plus:hover ~ #rightPanel {
+	opacity: 1.0;
+	transform: translate(-100%,0px);
+	-ms-transform: translate(-100%,0px); /* IE 9 */
+	-webkit-transform: translate(-100%,0px); /* Safari and Chrome */
+}
+			
+#rightPanel:hover {
+	opacity: 1.0;
+	transform: translate(-100%,0px);
+	-ms-transform: translate(-100%,0px); /* IE 9 */
+	-webkit-transform: translate(-100%,0px); /* Safari and Chrome */
+}
+
+div#view {
+	position: absolute;
+	top: 35px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}

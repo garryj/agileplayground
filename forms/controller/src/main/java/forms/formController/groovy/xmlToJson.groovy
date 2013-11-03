@@ -2,7 +2,7 @@ package forms.formController.groovy
 
 xml = "${xml}"
 
-xml = "<ExampleForm><name>test</name></ExampleForm>"
+xml = "<forms><name>test</name><ID>1</ID></forms>"
 
 /*
 
@@ -63,6 +63,6 @@ def jsonObject = [ (parsed.name()): parsed.collect { node ->
 // And dump it as Json
 def jsonBuild = new groovy.json.JsonBuilder( jsonObject )
 
-json = jsonBuild.toString()
+//json = jsonBuild.toString()
 
-//json = '{\"forms\": [{ \"name\":\"FORM1\" , \"ID\":\"1\" }]}'
+json = '{\"forms\": { \"name\":\"FORM1\" , \"ID\":\"1\" }}'

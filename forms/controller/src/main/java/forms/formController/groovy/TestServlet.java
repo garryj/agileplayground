@@ -7,7 +7,8 @@ import groovy.util.ScriptException;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Vector;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,25 +40,19 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/*Enable CORS*/
+		//Enable CORS
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Methods", "POST");
 		response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         
-		
-		/*Response Body*/
+		//Response Body
 		PrintWriter out = response.getWriter();		
 		
-		/*Retrieve Resource*/
+		//Retrieve Resource
 		Object retrievedXML = retrieveXML();
         
-		/*Respond With Appropriate Content Type*/
-		/**TODO
-		 * Analyse accept header and parse value into vector - import HttpClient.Util to do so (requires Tomcat dependency issue to be solved)
-		 */
-		//Util.parseHeader(request.getHeader("accept"));
-		Vector accept = new Vector();
-		accept.add("application/json");
+		//Respond With Appropriate Content Type
+		List<String> accept = Arrays.asList(request.getHeader("accept").split("\\s*,\\s*"));
 		
 		if(accept.contains("application/json")) { // JSON Response Body
 			
@@ -78,26 +73,47 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		/*Map<String, String[]> map = request.getParameterMap();
 		
-		/*Enable CORS*/
+		Set set = map.entrySet();
+		
+		Iterator it = set.iterator();
+		
+        while (it.hasNext()) {
+        	
+            Map.Entry<String, String[]> entry = (Entry<String, String[]>) it.next();
+            String paramName = entry.getKey();
+
+            String[] paramValues = entry.getValue();
+            if (paramValues.length == 1) {
+                String paramValue = paramValues[0];
+                if (paramValue.length() == 0)
+                    System.out.println("No Value");
+                else
+                	System.out.println(paramValue);
+            } else {
+                for (int i = 0; i < paramValues.length; i++) {
+                    System.out.println(paramValues[i]);
+                }
+            }
+        }*/
+        
+        //request.getInputStream().read()
+		
+		
+		//Enable CORS
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Methods", "POST");
 		response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        
 		
-		/*Response Body*/
+		//Response Body
 		PrintWriter out = response.getWriter();		
 		
-		/*Retrieve Resource*/
+		//Retrieve Resource
 		Object retrievedXML = retrieveXML();
         
-		/*Respond With Appropriate Content Type*/
-		/**TODO
-		 * Analyse accept header and parse value into vector - import HttpClient.Util to do so (requires Tomcat dependency issue to be solved)
-		 */
-		//Util.parseHeader(request.getHeader("accept"));
-		Vector accept = new Vector();
-		accept.add("application/json");
+		//Respond With Appropriate Content Type
+		List<String> accept = Arrays.asList(request.getHeader("accept").split("\\s*,\\s*"));
 		
 		if(accept.contains("application/json")) { // JSON Response Body
 			
