@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ExampleXMLForm {
  
 	String name;
-	String name2;
 	long ID;
  
 	@XmlElement
