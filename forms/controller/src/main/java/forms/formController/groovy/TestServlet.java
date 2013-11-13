@@ -46,7 +46,7 @@ public class TestServlet extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         
 		//Response Body
-		PrintWriter out = response.getWriter();		
+		PrintWriter out = response.getWriter();
 		
 		//Retrieve Resource
 		Object retrievedXML = retrieveXML();
