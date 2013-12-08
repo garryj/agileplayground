@@ -1,0 +1,50 @@
+div#tools {
+	background:  #d8d8d8;
+	position: fixed;
+	right: 0px;
+	top: 35px;
+	width: 35%;
+	bottom: 0px;
+	overflow-y: auto;
+
+	animation: fade 0.5s;
+	-webkit-animation: fade 0.5s; /* Safari and Chrome */
+}
+			
+@keyframes fade {
+	0%   {
+			right: -35%;
+		 }
+	100% {
+			right: 0px;
+		}
+}
+
+@-webkit-keyframes fade { /* Safari and Chrome */
+	0%   {
+			right: -35%;
+		 }
+	100% {
+			right: 0px;
+		}
+}
+
+section {
+	height:100%;
+}
+
+div#code {
+	
+	right: 0px;
+	top: 35px;
+	width: 65%;
+	bottom: 0px;
+
+	height: 100%;
+}
+
+textarea {
+	margin: 10px;
+    width: 95%;
+    height: 300px;
+}

@@ -1,4 +1,0 @@
-agileplayground
-===============
-
-Agile Playground

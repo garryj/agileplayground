@@ -7,7 +7,7 @@ var servicesApp = angular.module('services', [])
 		
 	})
 
-	.factory('testService', function() {
+	.factory('saveService', function() {
 		  var shinyNewServiceInstance;
 		  
 		  
@@ -21,10 +21,8 @@ var servicesApp = angular.module('services', [])
 				}).error(function (data, status, headers, config) {
 					$scope.parsedData = data;
 			});*/
-		  
-		  
-		  
+
 		  
 		  //factory function body that constructs shinyNewServiceInstance
-		  return shinyNewServiceInstance;
+		  return 2;
 	});

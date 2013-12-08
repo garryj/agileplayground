@@ -7,7 +7,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import forms.cayenne.FormData;
-import forms.cayenne.persistent.Form;
  
 @Path("Forms")
 public class FormServices {
@@ -16,7 +15,7 @@ public class FormServices {
  
 	@GET
 	@Path("/{formID}")
-	//@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_XML)
 	public ExampleXMLForm getForm(@PathParam("formID") long formID) {
 		
 		//Form form = formData.getForm(formID);
@@ -34,7 +33,7 @@ public class FormServices {
 	@Produces(MediaType.APPLICATION_XML)
 	public ExampleXMLForm clientTest() {
 		
-		//Form form = formData.getForm(1);
+		//Form form = formData.getForm(formID);
  
 		ExampleXMLForm form = new ExampleXMLForm();
 		form.setName("test");

@@ -1,0 +1,20 @@
+<section id="banner" ng-controller = "controller">
+	<div id="logo" class="element"><img src="img/logo.png" height=100%></div><div id="twine" class="element">twine</div><div id="projectName" class="element">{{title}}</div><div id="views" class="element">Views:</br><a ng-click=setRoute('design')>Design</a> | <a ng-click=setRoute('code')>Code</a> | <a ng-click=setRoute('preview')>Preview</a></div><div id="settings" class="element"><img src="img/Logout.png" height=25px></div>
+</section>
+
+<div id="alert" ng-show="isAlertVisible">
+	{{message}} <input type="button" value="Close" ng-click=setIsAlertVisible(false)>
+</div>
+
+<section design-canvas>
+	<canvas id="mainCanvas"></canvas>
+	<div id="rightPanel" ng-show="isRightPanelVisible"><canvas id="rightCanvas"></canvas></div>
+</section>
+
+<div id="plus"></div>
+
+<div id="info">Show Info</div>
+
+<div id="infoPanel" ng-show="isInfoPanelVisible">
+	ID: {{infoID}} <input type="button" value="Hide Info" ng-click=setIsInfoPanelVisible(false)>
+</div>
