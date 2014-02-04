@@ -1,0 +1,32 @@
+<section id="banner" ng-controller = "controller">
+	<div id="logo" class="element"><img src="img/logo.png" height=100%></div><div id="twine" class="element">twine</div><div id="projectName" class="element">{{title}}</div><div id="views" class="element">Views:</br><a ng-click=setRoute('design')>Design</a> | <a ng-click=setRoute('code')>Code</a> | <a ng-click=setRoute('preview')>Preview</a></div><div id="settings" class="element"><img src="img/Logout.png" height=25px></div>
+</section>
+
+<div id="alert"  class="animate-show-hide" ng-show="checked">
+	{{alert}} <input type="button" value="Close" ng-click=hideAlert()>
+</div>
+
+<section>
+	<div id="code">
+				<textarea>
+<!DOCTYPE HTML>
+<html>
+	<body>
+				
+		<video width="320" height="240" controls>
+			<source src="movie.mp4" type="video/mp4">
+			<source src="movie.ogg" type="video/ogg">
+			Your browser does not support the video tag.
+		</video>
+				
+	</body>
+</html>
+				</textarea>
+			
+			</body>
+			</html> 
+	</div>
+	
+	<div id="tools">
+	<div>
+</section>

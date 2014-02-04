@@ -1,0 +1,155 @@
+/* cross fading between routes with ngView */
+body {
+	overflow-y: scroll;
+}
+
+.view-container {
+  position: relative;
+}
+
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.view-frame.ng-enter {
+  -webkit-animation: 0.5s fade-in;
+  -moz-animation: 0.5s fade-in;
+  -o-animation: 0.5s fade-in;
+  animation: 0.5s fade-in;
+}
+
+.view-frame.ng-leave {
+  -webkit-animation: 0.5s fade-out;
+  -moz-animation: 0.5s fade-out;
+  -o-animation: 0.5s fade-out;
+  animation: 0.5s fade-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+
+/* banner */
+
+#banner {
+	position:fixed;
+	left:0px;
+	top:0px;
+	right:0px;
+	height:35px;
+	background-color:#dfd5d7;
+	overflow:hidden;
+}
+			
+#banner .element {
+	position: absolute;
+	top:0px;
+	height: 100%;
+}
+
+#banner #logo {
+	left: 0%;
+	width: 3%;
+}
+		
+#banner #twine {
+	left: 3%;
+	width: 6%;
+	font: 25px Tahoma, Helvetica, Arial, Sans-Serif;
+	color: #222;
+	text-shadow: 0px 2px 3px #555;
+}
+			
+#banner #projectName {
+	left: 9%;
+	width: 55%;
+	padding-top:5px;
+	font: 17px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #views {
+	right: 160px;
+	width: 295px;
+	padding-top:1px;
+	font: 12px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #download {
+	right: 35px;
+	width: 125px;
+	padding-top:5px;
+	font: 17px Tahoma, Helvetica, Arial, Sans-Serif;
+}
+			
+#banner #settings {
+	right: 0px;
+	width: 35px;
+	padding-top:5px;
+}
+
+#banner #views a:active {
+	text-decoration:underline;
+}
+
+#banner #views a {
+    outline: 0;
+    text-decoration: underline;
+}
+
+#banner #views a:link {
+    color: #0099FF;
+}
+
+#banner #views a:hover {
+    color: #6E6E6E;
+}
+
+
+
+/* alert */
+
+#alert {
+    position: fixed;
+    z-index: 101;
+    top: 40px;
+    left: 5px;
+    right: 5px;
+    background: #fde073;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+}
+
+#alert.ng-hide-add,
+#alert.ng-hide-remove {
+	-webkit-transition:all linear 0.3s;
+	-moz-transition:all linear 0.3s;
+	-o-transition:all linear 0.3s;
+	transition:all linear 0.3s;
+	display:block!important;
+}
+
+#alert.ng-hide-add.ng-hide-add-active,
+#alert.ng-hide-remove {
+	opacity:0;
+}
+ 
+#alert.ng-hide-add,
+#alert.ng-hide-remove.ng-hide-remove-active {
+	opacity:1;
+}

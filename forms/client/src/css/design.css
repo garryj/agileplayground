@@ -1,0 +1,95 @@
+#debug {
+	background: #d8d8d8;
+	position: fixed;
+	left: 0px;
+	top: 35px;
+	width: 350px;
+	height: 350px;
+}
+
+
+/* Right Panel */
+
+#plus {
+	position: fixed;
+	right: 0px;
+	top: 150px;
+	height: 50px;
+	width: 50px;
+	background: #D2D2D2;
+}
+
+#rightPanel {
+	background: #d8d8d8;
+	position: fixed;
+	right: 0px;
+	top: 35px;
+	width: 350px;
+	bottom: 0px;
+	overflow-y: auto;
+	z-index:1;
+}
+
+#rightPanel.ng-hide-add,
+#rightPanel.ng-hide-remove {
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-o-transition:all 0.3s;
+	transition:all 0.3s;
+	display:block!important;
+}
+
+#rightPanel.ng-hide-add.ng-hide-add-active,
+#rightPanel.ng-hide-remove {
+	right: -350px;
+}
+ 
+#rightPanel.ng-hide-add,
+#rightPanel.ng-hide-remove.ng-hide-remove-active {
+	opacity:1;
+	right: 0px;
+}
+
+
+/* Info Panel */
+
+#info {
+	position: fixed;
+	bottom: 0px;
+	left: 150px;
+	height: 50px;
+	width: 50px;
+	background: #D2D2D2;
+}
+
+#infoPanel {
+	position: fixed;
+	background: #d8d8d8;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	height: 250px;
+	overflow-y: auto;
+	z-index:1;
+}
+
+#infoPanel.ng-hide-add,
+#infoPanel.ng-hide-remove {
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-o-transition:all 0.3s;
+	transition:all 0.3s;
+	display:block!important;
+}
+
+#infoPanel.ng-hide-add.ng-hide-add-active,
+#infoPanel.ng-hide-remove {
+	opacity:0;
+	bottom: -250px;
+}
+ 
+#infoPanel.ng-hide-add,
+#infoPanel.ng-hide-remove.ng-hide-remove-active {
+	opacity:1;
+	bottom: 0px;
+}
