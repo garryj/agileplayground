@@ -143,7 +143,7 @@ public class FormData {
 
 	
 	/* Creates a form element with attributes and appends to form */
-	public String createFormElement(long formID, int height, int width, String content) {
+	public String createFormElement(long formID, String name, String type, int height, int width, String content) {
 		
 		ObjectContext context;
 		Expression qualifier;
@@ -171,6 +171,10 @@ public class FormData {
 		
 		
 		// Set attributes
+		formElement.setName(name);
+		
+		formElement.setType(type);
+		
 		formElement.setHeight(50);
 		
 		formElement.setWidth(150);

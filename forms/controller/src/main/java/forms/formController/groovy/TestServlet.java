@@ -40,19 +40,27 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Enable CORS
+		/* Enable CORS */
+		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Methods", "POST");
 		response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         
-		//Response Body
+		
+		/* Response Body */
+		
 		PrintWriter out = response.getWriter();
 		
-		//Retrieve Resource
+		
+		/* Retrieve Resource */
+		
 		Object retrievedXML = retrieveXML();
         
-		//Respond With Appropriate Content Type
+		
+		/* Respond With Appropriate Content Type */
+		
 		List<String> accept = Arrays.asList(request.getHeader("accept").split("\\s*,\\s*"));
+		
 		
 		if(accept.contains("application/json")) { // JSON Response Body
 			
@@ -101,19 +109,27 @@ public class TestServlet extends HttpServlet {
         //request.getInputStream().read()
 		
 		
-		//Enable CORS
+		/* Enable CORS */
+		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Methods", "POST");
 		response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 		
-		//Response Body
+		
+		/* Response Body */
+		
 		PrintWriter out = response.getWriter();		
 		
-		//Retrieve Resource
+		
+		/* Retrieve Resource */
+		
 		Object retrievedXML = retrieveXML();
         
-		//Respond With Appropriate Content Type
+		
+		/* Respond With Appropriate Content Type */
+		
 		List<String> accept = Arrays.asList(request.getHeader("accept").split("\\s*,\\s*"));
+		
 		
 		if(accept.contains("application/json")) { // JSON Response Body
 			
@@ -121,6 +137,7 @@ public class TestServlet extends HttpServlet {
 
 			out.print(xmlToJson(retrievedXML));
 		}
+		
 		else { // XML Response Body
 			
 			response.setContentType("application/xml");
@@ -129,7 +146,10 @@ public class TestServlet extends HttpServlet {
 		}
 	}
 	
+	
+	
 	/*Retrieve XML From Web Service*/
+	
 	private Object retrieveXML() throws IOException {
 		
 		GroovyScriptEngine retrieveEngine = new GroovyScriptEngine(groovyRoots);
@@ -146,7 +166,9 @@ public class TestServlet extends HttpServlet {
 	}
 	
 	
+	
 	/*Convert XML To JSON*/
+	
 	private Object xmlToJson(Object xml) throws IOException {
 
 		GroovyScriptEngine convertEngine = new GroovyScriptEngine(groovyRoots);

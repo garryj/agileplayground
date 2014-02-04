@@ -13,7 +13,7 @@ public class FormServices {
 	
 	private static FormData formData = new FormData();
  
-	@GET
+	/*@GET
 	@Path("/{formID}")
 	@Produces(MediaType.APPLICATION_XML)
 	public ExampleXMLForm getForm(@PathParam("formID") long formID) {
@@ -25,16 +25,14 @@ public class FormServices {
 		form.setID(formID);
  
 		return form;
-	}
+	}*/
 	
 	
 	@GET
-	@Path("/clientTest")
+	@Path("/test")
 	@Produces(MediaType.APPLICATION_XML)
-	public ExampleXMLForm clientTest() {
-		
-		//Form form = formData.getForm(formID);
- 
+	public ExampleXMLForm test() {
+
 		ExampleXMLForm form = new ExampleXMLForm();
 		form.setName("test");
 		form.setID(1);
