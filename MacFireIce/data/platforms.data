@@ -1,0 +1,5 @@
+--Level, category of platform, x pos, y pos, movement type
+1,A,100,200, 1
+1,A,300,400, 2
+1,A,400,500, 3
+
